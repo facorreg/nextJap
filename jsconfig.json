@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@utils": [
+        "src/utils/index"
+      ],
+      "@apollo": [
+        "src/apollo/index"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@static": [
+        "src/static/index",
+        "src/static/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
