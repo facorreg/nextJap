@@ -3,7 +3,18 @@ import capitalize from 'lodash/capitalize';
 // import { } from './singleStaticProps';
 // import { } from './singleStaticPaths';
 
+/*
+exemple of path
+ {
+   path: ['/product/[id]'],
+   staticPropsArray: [getProductByIDData],
+   staticPathsArray: [pathsPID],
+   options: { revalidate: 1 }
+ }
+*/
+
 const paths = [];
+
 
 const extractError = (data) => (
   data instanceof Error
