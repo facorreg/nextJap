@@ -2,16 +2,16 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@utils": [
+      "utils": [
         "src/utils/index"
       ],
-      "@apollo": [
+      "apollo": [
         "src/apollo/index"
       ],
-      "@components/*": [
+      "components/*": [
         "src/components/*"
       ],
-      "@static": [
+      "static": [
         "src/static/index",
         "src/static/*"
       ]

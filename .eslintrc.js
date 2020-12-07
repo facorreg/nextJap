@@ -26,10 +26,10 @@ module.exports = {
     'import/resolver': {
       alias: {
         map: [
-          ['@utils', './src/utils']
-          ['@apollo', './src/apollo']
-          ['@components', './src/components']
-          ['@statuc', './src/static']
+          ['utils', './src/utils']
+          ['apollo', './src/apollo']
+          ['components', './src/components']
+          ['statuc', './src/static']
         ]
       }
     }

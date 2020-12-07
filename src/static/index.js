@@ -1,20 +1,18 @@
 import isArray from 'lodash/isArray';
 import capitalize from 'lodash/capitalize';
-// import { } from './singleStaticProps';
-// import { } from './singleStaticPaths';
+// import {
+//   fetchCarouselData, fetchProductsData, getProductByIDData, fetchDynamicPageContent,
+// } from './singleStaticProps';
+import { word as wordStaticProps } from './singleStaticProps';
+import { word as wordStaticPaths } from './singleStaticPaths';
+// staticPropsArray: [ft() => Promise]
 
-/*
-exemple of path
- {
-   path: ['/product/[id]'],
-   staticPropsArray: [getProductByIDData],
-   staticPathsArray: [pathsPID],
-   options: { revalidate: 1 }
- }
-*/
-
-const paths = [];
-
+const paths = [{
+  path: ['/word/[word]'],
+  staticPropsArray: [wordStaticProps],
+  staticPathsArray: [wordStaticPaths],
+  options: { revalidate: 1 },
+}];
 
 const extractError = (data) => (
   data instanceof Error

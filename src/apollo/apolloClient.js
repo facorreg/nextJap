@@ -1,14 +1,14 @@
 import {
   ApolloClient, HttpLink, InMemoryCache, concat, ApolloLink,
 } from '@apollo/client';
-import { getCookie, isServerSide } from '@utils';
 import { concatPagination } from '@apollo/client/utilities';
+import { getCookie, isServerSide } from 'utils';
 
 let apolloClient;
 
 const createApolloClient = () => {
   const httpLink = new HttpLink({
-    uri: 'http://localhost:1337/graphql', // Server URL (must be absolute)
+    uri: 'http://localhost:4000/graphql', // Server URL (must be absolute)
     // credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
   });
 
