@@ -8,8 +8,14 @@
       "apollo": [
         "src/apollo/index"
       ],
+      "queries": [
+        "src/apollo/queries/index"
+      ],
       "components/*": [
         "src/components/*"
+      ],
+      "cpages/*": [
+        "src/components/pages/*"
       ],
       "static": [
         "src/static/index",

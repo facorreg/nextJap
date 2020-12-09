@@ -29,7 +29,8 @@ module.exports = {
           ['utils', './src/utils']
           ['apollo', './src/apollo']
           ['components', './src/components']
-          ['statuc', './src/static']
+          ['cpages', './src/components/pages']
+          ['static', './src/static']
         ]
       }
     }

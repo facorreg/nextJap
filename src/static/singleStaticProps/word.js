@@ -1,30 +1,13 @@
-
-import { gql } from '@apollo/client';
+import { GET_WORD } from 'queries';
 import { initializeApollo } from 'apollo';
-
-const query = gql`
-  query getWord($word: String!){
-    getWord(word:$word) {
-      japanese {
-        word
-        reading
-      }
-      tags
-      definitions
-      partsOfSpeech
-    }
-  }
-`;
 
 const fetchWordPageContent = async ({ context }) => {
   try {
-    console.log(context)
     const { word } = context?.params || {};
-    console.log(context.params)
     const client = initializeApollo();
 
     const data = await client.query({
-      query,
+      query: GET_WORD,
       variables: { word },
     });
 
