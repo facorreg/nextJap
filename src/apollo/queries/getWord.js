@@ -13,6 +13,7 @@ const GET_WORD = gql`
         partsOfSpeech
         examples
       }
+      kanjiIds
     }
   }
 `;

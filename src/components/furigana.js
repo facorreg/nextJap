@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import escapeStringRegexp from 'escape-string-regexp';
 
@@ -30,6 +31,12 @@ const Furigana = ({ word, reading, cName }) => {
       dangerouslySetInnerHTML={{ __html: stringWithFurigana(actualWord, furigana) }}
     />
   )
+}
+
+Furigana.propTypes = {
+  word: PropTypes.string,
+  reading: PropTypes.string,
+  cName: PropTypes.scName
 }
 
 export default Furigana;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const WordSenses = ({ senses }) => (
   <div className="sensesContainer">
@@ -13,5 +14,16 @@ const WordSenses = ({ senses }) => (
     }
   </div>
 )
+
+WordSenses.propTypes = {
+  senses: PropTypes.arrayOf(
+    PropTypes.shape({
+      tags: PropTypes.string,
+      definitions: PropTypes.arrayOf(PropTypes.string),
+      partsOfSpeech: PropTypes.string,
+      examples: PropTypes.arrayOf(PropTypes.string)
+    })
+  ),
+}
 
 export default WordSenses;

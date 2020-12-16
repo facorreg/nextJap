@@ -18,7 +18,7 @@ const dynamicPaths = async () => {
         }
       });
 
-      const { wordList = {}, countDb } = wordListData?.data?.getWords || {};
+      const { wordList = {} } = wordListData?.data?.getWords || {};
       const { total, words } = wordList;
 
       if (!total) return words;

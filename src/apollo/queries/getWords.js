@@ -4,6 +4,7 @@ const GET_WORDS = gql`
   query getWords($from: Int, $limit: Int){
     getWords(from: $from, limit: $limit) {
       countDb
+      kanjiIds
       wordList {
         total
         words {
