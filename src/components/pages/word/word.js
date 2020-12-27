@@ -7,7 +7,7 @@ import KanjiList from 'components/kanjiList';
 import WordStyle from './word.style';
 
 const WordPage = (props) => {
-  const { word, kanjiList } = props;
+  const { word, kanjiList } = props.props;
 
   return (
     <WordStyle>
@@ -15,7 +15,6 @@ const WordPage = (props) => {
         {
           word?.map(({ japanese, senses }, i) => {
             const [{ word, reading }, ...rest] = japanese;
-
             return (
               <div className="singleWord" key={i}>
                 <Furigana word={word} reading={reading} cName="dictionaryWord" />

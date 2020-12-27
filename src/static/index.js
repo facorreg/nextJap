@@ -1,8 +1,5 @@
 import isArray from 'lodash/isArray';
 import capitalize from 'lodash/capitalize';
-// import {
-//   fetchCarouselData, fetchProductsData, getProductByIDData, fetchDynamicPageContent,
-// } from './singleStaticProps';
 import { word as wordStaticProps } from './singleStaticProps';
 import { word as wordStaticPaths } from './singleStaticPaths';
 // staticPropsArray: [ft() => Promise]
@@ -34,7 +31,7 @@ const resolveProps = (data, options = {}) => Promise.resolve({
 
 const resolvePaths = (data) => {
   const err = extractError(data);
-  return Promise.resolve(err ? {} : { ...data, fallback: true });
+  return Promise.resolve(err ? { paths: [], fallback: true } : { ...data, fallback: true });
 };
 
 const buildStatic = async (staticPropsArray, options, args) => {
@@ -49,7 +46,8 @@ const buildStatic = async (staticPropsArray, options, args) => {
   }
 };
 
-const getStaticUniversal = ({ pathname, args = {}, type = 'props' }) => async () => {
+const getStaticUniversal = ({ type, args }) => async (ctx) => {
+  const { pathname } = ctx;
   const getStaticArray = ({ path }) => (
     isArray(path) ? path.includes(pathname) : path === pathname
   );
@@ -60,8 +58,11 @@ const getStaticUniversal = ({ pathname, args = {}, type = 'props' }) => async ()
   if (!staticArray || !staticArray.length) return Promise.resolve({});
 
   const resolve = type === 'props' ? resolveProps : resolvePaths;
-  const staticData = await buildStatic(staticArray, options, args);
+  const staticData = await buildStatic(staticArray, options, { ...args, ctx });
   return resolve(staticData);
 };
 
-export default getStaticUniversal;
+const getInitialProps = (args) => getStaticUniversal({ type: 'props', args });
+const getStaticPages = (args) => getStaticUniversal({ type: 'page', args });
+
+export { getInitialProps, getStaticPages };

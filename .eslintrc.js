@@ -29,6 +29,8 @@ module.exports = {
         map: [
           ['utils', './src/utils']
           ['apollo', './src/apollo']
+          ['queries', './src/apollo/queries'],
+          ['fragments', './src/apollo/fragments'],
           ['components', './src/components']
           ['cpages', './src/components/pages']
           ['static', './src/static']

@@ -2,12 +2,12 @@ import uniq from 'lodash/uniq';
 import uniqBy from 'lodash/uniqBy';
 import flattenDeep from 'lodash/flattenDeep';
 
-import { GET_WORD, GET_KANJI } from 'queries';
+import { GET_WORD, GET_KANJI_LIST } from 'queries';
 import { initializeApollo } from 'apollo';
 
-const fetchWordPageContent = async ({ context }) => {
+const fetchWordPageContent = async (args) => {
   try {
-    const { word } = context?.params || {};
+    const { word } = args?.ctx?.query || {};
     const client = initializeApollo();
 
     const data = await client.query({
@@ -34,22 +34,21 @@ const fetchWordPageContent = async ({ context }) => {
           // console.log(w, character, w.includes(character))
           w?.includes(character)
         ))
+
       )
 
       kanjiList = uniqBy(
         await client.query({
-          query: GET_KANJI,
+          query: GET_KANJI_LIST,
           variables: { ids: kanjiIds }
         })
-          .then(({ data }) => data?.getKanji),
+          .then(({ data }) => data?.getKanjiList),
         ({ character }) => character
       );
 
       kanjiList = kanjiList.sort(({ character }, { character: character2 }) => (
         findCharacterIndex(character) - findCharacterIndex(character2)
       ));
-
-      console.log(extractedWords, kanjiList.map(({ character }) => character))
     }
 
     return Promise.resolve({
@@ -57,7 +56,6 @@ const fetchWordPageContent = async ({ context }) => {
       kanjiList,
     });
   } catch (err) {
-    console.log(err)
     return Promise.reject(err);
   }
 };

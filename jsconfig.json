@@ -11,6 +11,9 @@
       "queries": [
         "src/apollo/queries/index"
       ],
+      "fragments": [
+        "src/apollo/fragments/index"
+      ],
       "components/*": [
         "src/components/*"
       ],
