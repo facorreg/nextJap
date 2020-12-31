@@ -29,13 +29,15 @@ module.exports = {
         map: [
           ['utils', './src/utils']
           ['apollo', './src/apollo']
-          ['queries', './src/apollo/queries'],
-          ['fragments', './src/apollo/fragments'],
+          ['queries', './src/apollo/queries']
+          ['fragments', './src/apollo/fragments']
           ['components', './src/components']
+          ['context', './src/context']
+          ['HoC', './src/HoC']
           ['cpages', './src/components/pages']
           ['static', './src/static']
-        ]
-      }
-    }
-  }
+        ],
+      },
+    },
+  },
 };

@@ -17,6 +17,12 @@
       "components/*": [
         "src/components/*"
       ],
+      "context": [
+        "src/context/index"
+      ],
+      "HoC": [
+        "src/HoC/index"
+      ],
       "cpages/*": [
         "src/components/pages/*"
       ],

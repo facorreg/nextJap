@@ -7,7 +7,7 @@ import KanjiList from 'components/kanjiList';
 import WordStyle from './word.style';
 
 const WordPage = (props) => {
-  const { word, kanjiList } = props.props;
+  const { word, kanjiList } = props;
 
   return (
     <WordStyle>
@@ -42,7 +42,7 @@ WordPage.propTypes = {
       senses: PropTypes.arrayOf(
         PropTypes.shape({
           tags: PropTypes.string,
-          definitions: PropTypes.arrayOf(PropTypes.string),
+          definitions: PropTypes.string,
           partsOfSpeech: PropTypes.string,
           examples: PropTypes.arrayOf(PropTypes.string)
         })

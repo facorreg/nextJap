@@ -2,8 +2,10 @@ import uniq from 'lodash/uniq';
 import uniqBy from 'lodash/uniqBy';
 import flattenDeep from 'lodash/flattenDeep';
 
-import { GET_WORD, GET_KANJI_LIST } from 'queries';
+import { GET_WORD, GET_KANJI_LIST, GET_EXAMPLES } from 'queries';
 import { initializeApollo } from 'apollo';
+import { reject } from 'lodash';
+import KanjiList from 'components/kanjiList';
 
 const fetchWordPageContent = async (args) => {
   try {
@@ -49,6 +51,25 @@ const fetchWordPageContent = async (args) => {
       kanjiList = kanjiList.sort(({ character }, { character: character2 }) => (
         findCharacterIndex(character) - findCharacterIndex(character2)
       ));
+
+
+
+      kanjiList = kanjiList.map(async ({ examples: ids, ...rest }) => {
+        try {
+          const examples = ids.length
+            ? await client.query({
+              query: GET_EXAMPLES,
+              variables: { ids }
+            })
+            : [];
+
+          return { ...rest, examples: examples?.data?.getExamples };
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      });
+
+      kanjiList = await Promise.all(kanjiList);
     }
 
     return Promise.resolve({

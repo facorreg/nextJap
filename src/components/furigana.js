@@ -36,7 +36,7 @@ const Furigana = ({ word, reading, cName }) => {
 Furigana.propTypes = {
   word: PropTypes.string,
   reading: PropTypes.string,
-  cName: PropTypes.scName
+  cName: PropTypes.string
 }
 
 export default Furigana;
