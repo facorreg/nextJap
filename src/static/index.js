@@ -1,13 +1,24 @@
 import isArray from 'lodash/isArray';
 import capitalize from 'lodash/capitalize';
-import { word as wordStaticProps } from './singleStaticProps';
-import { word as wordStaticPaths } from './singleStaticPaths';
+import {
+  word as wordStaticProps,
+  kanji as kanjiStaticProps,
+} from './singleStaticProps';
+import {
+  word as wordStaticPaths,
+  kanji as kanjiStaticPaths,
+} from './singleStaticPaths';
 // staticPropsArray: [ft() => Promise]
 
 const paths = [{
   path: ['/word/[word]'],
   staticPropsArray: [wordStaticProps],
   staticPathsArray: [wordStaticPaths],
+  options: { revalidate: 1 },
+}, {
+  path: ['/kanji/[kanji]'],
+  staticPropsArray: [kanjiStaticProps],
+  staticPathsArray: [kanjiStaticPaths],
   options: { revalidate: 1 },
 }];
 

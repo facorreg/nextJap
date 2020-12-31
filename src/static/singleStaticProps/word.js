@@ -4,8 +4,6 @@ import flattenDeep from 'lodash/flattenDeep';
 
 import { GET_WORD, GET_KANJI_LIST, GET_EXAMPLES } from 'queries';
 import { initializeApollo } from 'apollo';
-import { reject } from 'lodash';
-import KanjiList from 'components/kanjiList';
 
 const fetchWordPageContent = async (args) => {
   try {
@@ -51,8 +49,6 @@ const fetchWordPageContent = async (args) => {
       kanjiList = kanjiList.sort(({ character }, { character: character2 }) => (
         findCharacterIndex(character) - findCharacterIndex(character2)
       ));
-
-
 
       kanjiList = kanjiList.map(async ({ examples: ids, ...rest }) => {
         try {
