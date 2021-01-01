@@ -19,7 +19,7 @@ const customStyles = {
     overflowY: 'auto',
   },
   overlay: {
-    background: 'rgba(24, 26, 27, 0.8)'
+    background: 'rgba(0, 0, 0, 0.85)'
   }
 };
 
