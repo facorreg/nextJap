@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ME } from 'queries';
 import { AuthContext } from 'context';
-import { getCookie, setCookie, removeCookie, isServerSide } from 'utils'
+import { getCookie, setCookie, removeCookie } from 'utils'
 
 const AuthProvider = ({ children, client }) => {
   const [user, setUser] = useState(null);

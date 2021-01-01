@@ -23,10 +23,6 @@ const KanjiList = ({ kanjiList }) => {
             strokes: {
               count,
             },
-            video: {
-              poster,
-              video
-            } = {},
             references: {
               jlpt,
               grade,

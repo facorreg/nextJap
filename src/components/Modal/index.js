@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
-import StyledModal from './WithModal.style';
+// import StyledModalComp from './Modal.style';
 // eslint-disable-next-line import/no-cycle
 import { ModalContext } from 'context';
 
@@ -20,11 +20,10 @@ const customStyles = {
   },
   overlay: {
     background: 'rgba(24, 26, 27, 0.8)'
-
   }
 };
 
-const WithModal = (modalComponents) => ({ children }) => {
+const ModalComp = ({ modalComponents, children }) => {
   useEffect(() => (
     Modal.setAppElement('body')
   ));
@@ -38,7 +37,6 @@ const WithModal = (modalComponents) => ({ children }) => {
   const openModal = (newModalName, childProps) => {
     setModalName(newModalName);
     setModalProps(childProps);
-    console.log(childProps);
     setIsOpen(true);
   };
 
@@ -55,27 +53,26 @@ const WithModal = (modalComponents) => ({ children }) => {
       afterOpenModal, closeModal, isOpen, openModal,
     }}
     >
-      <StyledModal>
-        <Modal
-          isOpen={isOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-          portalClassName="modalPortal"
-        >
+      <Modal
+        isOpen={isOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <>
           <div className="modalForm">
-            {CurrentModal && <CurrentModal {...modalProps} />}
+            {CurrentModal && <CurrentModal {...modalProps} openModal={openModal} />}
           </div>
-        </Modal>
-        {children}
-      </StyledModal>
+        </>
+      </Modal>
+      {children}
     </ModalContext.Provider>
   );
 };
 
-WithModal.propTypes = {
+ModalComp.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
-export default WithModal;
+export default ModalComp;
