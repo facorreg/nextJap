@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 
 const ModalContext = createContext();
+const AuthContext = createContext();
 
-export { ModalContext };
+export { ModalContext, AuthContext };

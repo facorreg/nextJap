@@ -34,6 +34,7 @@ module.exports = {
           ['components', './src/components']
           ['context', './src/context']
           ['HoC', './src/HoC']
+          ['ownHooks', './src/ownHooks']
           ['cpages', './src/components/pages']
           ['static', './src/static']
         ],

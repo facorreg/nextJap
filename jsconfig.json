@@ -23,6 +23,9 @@
       "HoC": [
         "src/HoC/index"
       ],
+      "ownHooks": [
+        "src/ownHooks/index"
+      ],
       "cpages/*": [
         "src/components/pages/*"
       ],
