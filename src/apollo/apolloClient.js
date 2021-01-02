@@ -30,15 +30,7 @@ const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: isServerSide(),
     link: concat(authMiddleWare, httpLink),
-    cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            products: concatPagination(),
-          },
-        },
-      },
-    }),
+    cache: new InMemoryCache({}),
   });
 };
 

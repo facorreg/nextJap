@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { useMutation } from '@apollo/client';
-import { promesify, setCookie } from 'utils';
-import { REGISTER } from 'mutations';
+import { promesify } from 'utils';
+import { REGISTER, CONNECT } from 'mutations';
 import { AuthContext, ModalContext } from 'context';
 
 const useConnectionDataHandler = (field, errorMsg) => {
   const mutations = {
     register: [REGISTER, 'createUser'],
-    login: {},
+    login: [CONNECT, 'connect'],
   };
 
   const [mut, mutName] = mutations[field];
@@ -18,6 +18,7 @@ const useConnectionDataHandler = (field, errorMsg) => {
   const connectionDataHandler = async (args) => {
     try {
       const res = await mutation(args);
+      // (rest: jwt + user)
       const { error: mutError, ...rest } = res.data[mutName];
 
       if (mutError) {

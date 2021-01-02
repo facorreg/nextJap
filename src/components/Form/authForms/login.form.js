@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useGeneratedInputRefs } from 'ownHooks';
+import { useGeneratedInputRefs, useConnectionDataHandler } from 'ownHooks';
 import { promesify } from 'utils';
 import Common from './common.form';
 
@@ -13,9 +13,10 @@ const refsSchema = [{
 }];
 
 const Login = ({ openModal }) => {
+  const connect = useConnectionDataHandler('login', 'Unable to connect user')
   const {
     refs, handleSubmit, errorMessage,
-  } = useGeneratedInputRefs(refsSchema, () => alert('toto'), { noWhite: true });
+  } = useGeneratedInputRefs(refsSchema, connect, { noWhite: true });
   const openModalHandler = (modalName) => () => openModal(modalName);
 
   return (

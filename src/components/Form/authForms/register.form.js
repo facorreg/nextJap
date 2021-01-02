@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useGeneratedInputRefs, useConnectionDataHandler } from 'ownHooks';
 import { promesify, emailRegex } from 'utils';
 import Common from './common.form';
@@ -19,7 +19,7 @@ const refsSchema = [{
 
 
 const Register = () => {
-  const register = useConnectionDataHandler('register', 'Identifiers already taken')
+  const register = useConnectionDataHandler('register', 'Unable to create user')
   const {
     refs, handleSubmit, errorMessage,
   } = useGeneratedInputRefs(refsSchema, register, { noWhite: true });
