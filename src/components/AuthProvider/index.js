@@ -21,7 +21,6 @@ const AuthProvider = ({ children, client }) => {
   }, [user]);
 
   const login = (usr) => {
-    console.log(usr);
     setCookie('user', usr);
     setUser(usr.user);
   };
