@@ -72,7 +72,10 @@ const ModalComp = ({ modalComponents, children }) => {
 };
 
 ModalComp.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired
 };
 
 export default ModalComp;

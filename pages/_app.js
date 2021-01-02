@@ -22,15 +22,17 @@ function MyApp({ Component, pageProps }) {
   const client = useApollo(initialApolloState, cookieHandlers);
 
   return (
-    <Modal modalComponents={modalComponents} >
-      <ApolloProvider client={client}>
-        <AuthProvider client={client}>
+    <ApolloProvider client={client}>
+      <AuthProvider client={client}>
+        <Modal modalComponents={modalComponents} >
           <SharedStyle />
           <Header />
-          <Component {...pageProps.props} />
-        </AuthProvider>
-      </ApolloProvider>
-    </Modal>
+          <div id="content">
+            <Component {...pageProps.props} />
+          </div>
+        </Modal>
+      </AuthProvider>
+    </ApolloProvider>
   )
 }
 

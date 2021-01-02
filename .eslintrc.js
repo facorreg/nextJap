@@ -30,6 +30,7 @@ module.exports = {
           ['utils', './src/utils']
           ['apollo', './src/apollo']
           ['queries', './src/apollo/queries']
+          ['mutations', './src/apollo/mutations']
           ['fragments', './src/apollo/fragments']
           ['components', './src/components']
           ['context', './src/context']

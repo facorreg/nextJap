@@ -21,8 +21,9 @@ const AuthProvider = ({ children, client }) => {
   }, [user]);
 
   const login = (usr) => {
+    console.log(usr);
     setCookie('user', usr);
-    setUser(usr);
+    setUser(usr.user);
   };
 
   const logout = () => {
@@ -47,7 +48,10 @@ const AuthProvider = ({ children, client }) => {
 };
 
 AuthProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired
 };
 
 export default AuthProvider;

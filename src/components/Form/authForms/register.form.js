@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useGeneratedInputRefs } from 'ownHooks';
+import { useGeneratedInputRefs, useConnectionDataHandler } from 'ownHooks';
 import { promesify, emailRegex } from 'utils';
 import Common from './common.form';
 
@@ -19,9 +19,11 @@ const refsSchema = [{
 
 
 const Register = () => {
+  const register = useConnectionDataHandler('register', 'Identifiers already taken')
   const {
     refs, handleSubmit, errorMessage,
-  } = useGeneratedInputRefs(refsSchema, () => alert('toto'), { noWhite: true });
+  } = useGeneratedInputRefs(refsSchema, register, { noWhite: true });
+
 
   return (
     <Common>

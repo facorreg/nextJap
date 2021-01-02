@@ -11,6 +11,9 @@
       "queries": [
         "src/apollo/queries/index"
       ],
+      "mutations": [
+        "src/apollo/mutations/index"
+      ],
       "fragments": [
         "src/apollo/fragments/index"
       ],

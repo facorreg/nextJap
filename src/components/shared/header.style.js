@@ -15,7 +15,8 @@ const StyledHeader = styled.div`
       margin: 20px;
       letter-spacing: 7px;
       font-size: 0.8em;
-      line-height: 60px;
+      line-height: 2.2em;
+      max-height: 2.2em;
       cursor: pointer;
     }
   }

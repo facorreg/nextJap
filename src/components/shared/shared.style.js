@@ -12,6 +12,8 @@ const Shared = createGlobalStyle`
     font-family: 'Roboto', 'Noto Serif JP', sans-serif;
     margin: 0;
     position: relative;
+    background: linear-gradient(#181A1B, #383838);
+    min-height: 100vh;
   }
 `;
 
