@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.div`
-  @media (min-width: 1100px) {
-    width: 1100px;
-    height: 740px;
+  @media (min-width: 1250px) {
+    width: 1250px;
+    height: 834px;
     margin: auto;
     position: relative;
     text-align: center;
@@ -58,19 +58,47 @@ const StyledForm = styled.div`
         flex-direction: column;
         justify-content: center;
 
-        input[type=text], input[type=password] {
+
+        input[type=text], input[type=password], select {
+          border: 0;
+          background: transparent;
           color: #CDCDCD;
+          outline: none;
+        }
+
+        option {
+          background: rgba(0, 0, 0, 1)
+        }
+
+        input[type=text], input[type=password], .select {
           margin: auto;
           width: 75%;
           padding: 20px 0px;
           margin: 8px auto;
-          background: transparent;
-          border: 0;
           border-bottom: 1px solid white;
-          outline: none;
           font-size: 0.7em;
+
+          select {
+            width: 100%;
+            height: 100%;
+            font-size: 1em;
+          }
         }
-        
+
+        ${'' /* .select {
+            width: 100%;
+            min-width: 15ch;
+            max-width: 30ch;
+            border: 1px solid var(--select-border);
+            border-radius: 0.25em;
+            padding: 0.25em 0.5em;
+            font-size: 1.25rem;
+            cursor: pointer;
+            line-height: 1.1;
+            background-color: #fff;
+            background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+          } */}
+
         input[type=checkbox] {
           display: none;
         }
@@ -137,9 +165,8 @@ const StyledForm = styled.div`
       cursor: not-allowed;
     }
 
-
     .flipped {
-      transform: scaleX(-1);
+      transform: scaleX(${props => props.invert ? -1 : 1});
     }
 
     .hidden {
@@ -150,4 +177,3 @@ const StyledForm = styled.div`
 `;
 
 export default StyledForm;
-

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import StyledForm from './form.style';
+import CommonStyle from './common.style';
 
-const Register = ({ children }) => {
+const Register = ({ imgSrc, invert, children }) => {
   return (
-    <StyledForm>
-      <Image src="/Japan.webp" layout="fill" className="flipped" />
+    <CommonStyle invert={invert}>
+      <Image src={imgSrc} layout="fill" className="flipped" />
       {children}
-    </StyledForm>
+    </CommonStyle>
   )
 }
 

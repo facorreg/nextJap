@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useGeneratedInputRefs } from 'ownHooks';
 import { promesify } from 'utils';
-import Common from './common.form';
+import Common from '../common.form';
 
 const refsSchema = [{
   name: 'email',
@@ -15,7 +15,7 @@ const Forgot = () => {
   } = useGeneratedInputRefs(refsSchema, () => alert('toto'), { noWhite: true });
 
   return (
-    <Common>
+    <Common imgSrc="/Japan.webp" invert>
       <form>
         <h2>RESET PASSWORD</h2>
         <div className="inputContainer">

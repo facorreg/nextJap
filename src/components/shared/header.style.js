@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-  height: 200px;
+  height: 150px;
   display: flex;
   justify-content: flex-end;
   align-content: center;
@@ -12,12 +12,18 @@ const StyledHeader = styled.div`
     
     div {
       font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-      margin: 20px;
+      margin: 20px 0;
+      text-align: center;
       letter-spacing: 7px;
+      width: 200px;
       font-size: 0.8em;
       line-height: 2.2em;
       max-height: 2.2em;
       cursor: pointer;
+    }
+  
+    div:last-of-type {
+      margin-right: 20px;
     }
   }
 `;

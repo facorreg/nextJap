@@ -44,8 +44,12 @@ const ModalComp = ({ modalComponents, children }) => {
     // references are now sync'd and can be accessed.
   };
 
-  const closeModal = () => {
+  const closeModal = (_, callback) => {
     setIsOpen(false);
+    if (callback) {
+      console.log(callback);
+      callback();
+    }
   };
 
   return (

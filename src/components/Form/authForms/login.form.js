@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useGeneratedInputRefs, useConnectionDataHandler } from 'ownHooks';
 import { promesify } from 'utils';
-import Common from './common.form';
+import Common from '../common.form';
 
 const refsSchema = [{
   name: 'identifier',
@@ -12,15 +12,15 @@ const refsSchema = [{
   validator: (str) => promesify(str.length, 'Please provide your password to login'),
 }];
 
-const Login = ({ openModal }) => {
-  const connect = useConnectionDataHandler('login', 'Unable to connect user')
+const Login = ({ openModal, ...rest }) => {
+  const connect = useConnectionDataHandler('login', 'Unable to connect user', rest)
   const {
     refs, handleSubmit, errorMessage,
   } = useGeneratedInputRefs(refsSchema, connect, { noWhite: true });
   const openModalHandler = (modalName) => () => openModal(modalName);
 
   return (
-    <Common>
+    <Common imgSrc="/Japan.webp" invert>
       <form>
         <h2>LOGIN</h2>
         <div className="inputContainer">
@@ -31,7 +31,7 @@ const Login = ({ openModal }) => {
           <div className="errorMessage">{errorMessage}</div>
         </div>
         <div className="links">
-          <a className="forgot" onClick={openModalHandler('forgot')}><i>I forgot my password</i></a>
+          <a onClick={openModalHandler('forgot')}>I forgot my password</a>
         </div>
         <input className="submit" type="submit" value="Submit" onClick={handleSubmit} disabled={false} />
       </form>

@@ -2,12 +2,14 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { SharedStyle, Header } from 'components/shared';
 import AuthProvider from 'components/AuthProvider';
+import Dialog from 'components/Dialog';
 import Modal from 'components/Modal';
 import Login from 'components/Form/authForms/login.form';
 import { useApollo } from 'ownHooks';
 import KanjiPage from 'cpages/kanji';
 import Register from 'components/Form/authForms/register.form';
 import Forgot from 'components/Form/authForms/forgot.form';
+import CreateDeck from 'components/Form/cardsForms/createDeck.form';
 
 
 function MyApp({ Component, pageProps }) {
@@ -16,6 +18,8 @@ function MyApp({ Component, pageProps }) {
     login: Login,
     register: Register,
     forgot: Forgot,
+    createDeck: CreateDeck,
+    dialog: Dialog,
   }
 
   const { initialApolloState, cookieHandlers, ...props } = pageProps?.props || {};

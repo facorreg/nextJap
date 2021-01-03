@@ -31,6 +31,8 @@ const AuthProvider = ({ children, client }) => {
     setUser(null);
   };
 
+  console.log('isAuth', Boolean(user))
+
   const providerValue = {
     isAuthenticated: Boolean(user),
     loading,

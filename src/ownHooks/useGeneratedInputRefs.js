@@ -44,6 +44,8 @@ const useGeneratedInputRefs = (schema, submitCallback, options = {}) => {
     e.preventDefault();
     (async () => {
       try {
+        if (timeoutHandler) (clearTimeout(timeoutHandler));
+        setErrorMessage('');
         await validateAll();
         await submitCallback({ variables: { input: getAllInputs() } });
         return true;

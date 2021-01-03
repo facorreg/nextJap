@@ -4,7 +4,7 @@ import { promesify } from 'utils';
 import { REGISTER, CONNECT } from 'mutations';
 import { AuthContext, ModalContext } from 'context';
 
-const useConnectionDataHandler = (field, errorMsg) => {
+const useConnectionDataHandler = (field, errorMsg, { onCloseModal } = {}) => {
   const mutations = {
     register: [REGISTER, 'createUser'],
     login: [CONNECT, 'connect'],
@@ -26,7 +26,7 @@ const useConnectionDataHandler = (field, errorMsg) => {
       }
 
       login(rest);
-      closeModal();
+      closeModal(null, onCloseModal);
       return Promise.resolve(res);
     } catch (err) {
       return promesify(false, errorMsg);

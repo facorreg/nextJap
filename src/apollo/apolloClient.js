@@ -1,7 +1,6 @@
 import {
   ApolloClient, HttpLink, InMemoryCache, concat, ApolloLink,
 } from '@apollo/client';
-import { concatPagination } from '@apollo/client/utilities';
 import { getCookie, isServerSide } from 'utils';
 
 let apolloClient;
