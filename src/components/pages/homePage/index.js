@@ -6,7 +6,6 @@ import { AuthContext } from 'context';
 import ActionButton from 'components/ActionButton';
 import DecksTable from 'components/DeckTable';
 
-
 /*
 @todo think of a better way to update the data after the deck creation
 */
@@ -25,7 +24,7 @@ const Homepage = () => {
       <div className="dashboard" >
         <div className="dashboardMenu">
           <ActionButton en="Create Deck" jp="デッキを作成する" toOpen="createDeck" modalTopOpenProps={{ refetchDecks: refetch }} />
-          <ActionButton en="Add Card" jp="カードを追加" toOpen="createDeck" />
+          <ActionButton en="Add Card" jp="カードを追加" toOpen="createCard" modalTopOpenProps={{ decks: data?.getUserDecks }} />
         </div>
         {
           !loading && !error && <DecksTable decks={data?.getUserDecks} refetchDecks={refetch} />

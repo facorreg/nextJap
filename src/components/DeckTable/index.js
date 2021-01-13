@@ -47,8 +47,9 @@ const DecksTable = ({ decks = [], refetchDecks }) => {
             <td>{deck.name}</td>
             <td>{deck.type}</td>
             <td>0</td>
-            <td>
-              <Icon src="/trash.png" onClick={delDeck(deck)} />
+            <td className="actions">
+              <Icon src="/import.png" title="import file" onClick={() => console.log('toto')} />
+              <Icon src="/trash.png" title="delete deck" onClick={delDeck(deck)} />
             </td>
           </tr>
         ))

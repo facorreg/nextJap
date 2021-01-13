@@ -16,7 +16,7 @@ const refsSchema = [{
 }];
 
 
-const CreateDeck = ({ refetchDecks, ...rest }) => {
+const CreateDeck = ({ refetchDecks }) => {
   const { closeModal } = useContext(ModalContext);
   const [mutation] = useMutation(CREATE_DECK);
 
@@ -29,7 +29,7 @@ const CreateDeck = ({ refetchDecks, ...rest }) => {
       return promesify(false, 'Could not create deck');
     }
 
-  }// useConnectionDataHandler('createDeck', 'Unable to create user')
+  }
 
   const {
     refs, handleSubmit, errorMessage,
@@ -46,6 +46,8 @@ const CreateDeck = ({ refetchDecks, ...rest }) => {
               <option value="">Chose card type</option>
               <option value="kanji">Kanji</option>
               <option value="word">Word</option>
+              <option value="mixte">Mixte</option>
+
             </select>
           </div>
         </div>

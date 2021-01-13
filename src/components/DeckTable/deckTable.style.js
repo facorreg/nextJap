@@ -50,6 +50,19 @@ const StyledDecksTable = styled.table`
   tr:nth-child(2n+1):not(:first-child)r:nth-child(2n+1):not(:first-child) img {
     background: #353637;
   }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .icon:not(:last-of-type)  {
+    margin-right: 10px;
+  }
+
+  .invertColor {
+    filter: invert(1);
+  }
 `;
 
 export default StyledDecksTable;

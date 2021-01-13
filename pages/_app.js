@@ -10,7 +10,7 @@ import KanjiPage from 'cpages/kanji';
 import Register from 'components/Form/authForms/register.form';
 import Forgot from 'components/Form/authForms/forgot.form';
 import CreateDeck from 'components/Form/cardsForms/createDeck.form';
-
+import CreateCard from 'components/Form/cardsForms/createCard.form';
 
 function MyApp({ Component, pageProps }) {
   const modalComponents = {
@@ -19,10 +19,11 @@ function MyApp({ Component, pageProps }) {
     register: Register,
     forgot: Forgot,
     createDeck: CreateDeck,
+    createCard: CreateCard,
     dialog: Dialog,
   }
 
-  const { initialApolloState, cookieHandlers, ...props } = pageProps?.props || {};
+  const { initialApolloState, cookieHandlers } = pageProps?.props || {};
   const client = useApollo(initialApolloState, cookieHandlers);
 
   return (
@@ -32,7 +33,7 @@ function MyApp({ Component, pageProps }) {
           <SharedStyle />
           <Header />
           <div id="content">
-            <Component {...pageProps.props} />
+            <Component {...pageProps?.props} />
           </div>
         </Modal>
       </AuthProvider>
