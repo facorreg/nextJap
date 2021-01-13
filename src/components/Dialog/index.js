@@ -7,15 +7,15 @@ const StyledDialog = styled.div`
   display: flex;
   flex-direction: column;
   
-  .title {
+  .title, .question {
     border-bottom: 1px solid #CCCCCC;
     text-align: center;
     padding: 20px;
   }
 
   .question {
+    background: #333333;
     font-size: 0.8em;
-    padding: 20px;
   }
 
   .buttonContainer {
