@@ -5,13 +5,10 @@ const StyledDecksTable = styled.table`
   margin: auto;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  ${'' /* display: grid;
-  grid-template-columns: minmax(auto, 190px) repeat(3, auto); */}
   border-radius: 10px;
   letter-spacing: 1px;
   margin-top: 45px;
   border-spacing: 0;
-  ${'' /* border-collapse: separate; */}
   
   .tabTitle {
     background: #181A1B;
@@ -56,12 +53,16 @@ const StyledDecksTable = styled.table`
     justify-content: flex-end;
   }
 
-  .icon:not(:last-of-type)  {
+  .icon :not(:last-of-type), form {
     margin-right: 10px;
   }
 
   .invertColor {
     filter: invert(1);
+  }
+
+  input[type=file] {
+    display: none;
   }
 `;
 

@@ -1,7 +1,9 @@
 import {
-  ApolloClient, HttpLink, InMemoryCache, concat, ApolloLink,
+  ApolloClient, HttpLink, concat, ApolloLink, gql
 } from '@apollo/client';
 import { getCookie, isServerSide } from 'utils';
+import cache from './cache';
+import typeDefs from './typeDefs';
 
 let apolloClient;
 
@@ -29,7 +31,8 @@ const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: isServerSide(),
     link: concat(authMiddleWare, httpLink),
-    cache: new InMemoryCache({}),
+    cache: cache,
+    typeDefs,
   });
 };
 

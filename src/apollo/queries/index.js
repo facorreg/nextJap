@@ -5,5 +5,15 @@ import GET_KANJI_LIST from './getKanjiList';
 import GET_EXAMPLES from './getExamples';
 import ME from './me';
 import GET_USER_DECKS from './getUserDecks'
+import GET_CARDS_BY_IDS from './getCardsByIds';
 
-export { GET_WORDS, GET_WORD, GET_KANJI, GET_KANJI_LIST, GET_EXAMPLES, ME, GET_USER_DECKS };
+export {
+  GET_WORDS,
+  GET_WORD,
+  GET_KANJI,
+  GET_KANJI_LIST,
+  GET_EXAMPLES,
+  ME,
+  GET_USER_DECKS,
+  GET_CARDS_BY_IDS,
+};

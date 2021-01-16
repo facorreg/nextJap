@@ -8,6 +8,7 @@ const GET_USER_DECKS = gql`
       cardIds
       type
       id
+      newCardsCount
     }
   }
 `;

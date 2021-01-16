@@ -10,7 +10,8 @@ import DecksTable from 'components/DeckTable';
 @todo think of a better way to update the data after the deck creation
 */
 
-const Homepage = () => {
+const Homepage = (props) => {
+  console.log(props);
   const { data, loading: decksLoading, error: decksError, refetch } = useQuery(GET_USER_DECKS);
   const { isAuthenticated, loading: authLoading, error: authError } = useContext(AuthContext);
   const [loading, error] = [decksLoading || authLoading, decksError || authError];
